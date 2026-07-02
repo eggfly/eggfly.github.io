@@ -12,24 +12,18 @@ const CONFIG = {
     github: {
       display: true,
       header: 'Featured Projects',
-      mode: 'manual', // Only show a hand-picked list (hides embedded / TypixNode).
+      mode: 'automatic', // Top repos by stars (embedded + software). TypixNode is a separate org, so it never appears here.
       automatic: {
         sortBy: 'stars',
-        limit: 8,
+        limit: 12,
         exclude: {
           forks: true,
-          projects: [],
+          // Only hide infra repos, not real projects.
+          projects: ['eggfly/eggfly', 'eggfly/eggfly.github.io'],
         },
       },
       manual: {
-        projects: [
-          'eggfly/QuickPatch',
-          'eggfly/KVM',
-          'eggfly/FastDexInject',
-          'eggfly/flutter_windows_webview2',
-          'eggfly/bcsgo',
-          'eggfly/DroidDiskBench',
-        ],
+        projects: [],
       },
     },
     external: {
@@ -41,7 +35,7 @@ const CONFIG = {
   seo: {
     title: 'eggfly — Mobile & Systems Engineer',
     description:
-      'Mobile & systems engineer focused on Android internals, Kotlin/JVM, cross-platform (Flutter · KMP) and Go backends.',
+      'Mobile & systems engineer and hardware tinkerer — Android internals, Kotlin/JVM, cross-platform (Flutter · KMP), Go, and ESP32 gadgets.',
     imageURL: '',
   },
   social: {
@@ -78,8 +72,10 @@ const CONFIG = {
     'Dart',
     'Go',
     'Python',
-    'C++',
+    'C / C++',
     'JVM Internals',
+    'ESP32 / Arduino',
+    'MicroPython',
     'Gradle',
     'Git',
   ],
